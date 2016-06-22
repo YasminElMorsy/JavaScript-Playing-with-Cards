@@ -1,0 +1,143 @@
+<html>
+<head>
+	<title>Numbers</title>
+	<script>
+		var nums=["pic/0.png","pic/1.png","pic/2.png","pic/3.png","pic/4.png","pic/5.png","pic/6.png","pic/7.png","pic/8.png","pic/9.png","pic/10.png","pic/11.png","pic/12.png","pic/13.png","pic/14.png","pic/15.png"];
+		var original=["pic/1.png","pic/2.png","pic/3.png","pic/4.png","pic/5.png","pic/6.png","pic/7.png","pic/8.png","pic/9.png","pic/10.png","pic/11.png","pic/12.png","pic/13.png","pic/14.png","pic/15.png","pic/0.png"];
+		var arr2=[],x,i,j=0,y;
+		var index=0,k;
+		var counter=0;
+		var temp;
+		while(arr2.length!=16)
+			{
+				x=Math.floor(Math.random()*16);
+			for (i=0;i<nums.length;i++) {
+			 	if (x==i)
+					{
+						arr2[j]=nums[i];
+						nums.splice(i,1);
+						j++;
+					}
+				}
+			}
+		function flip(index)
+		{
+			if(arr2[index-1]=="pic/0.png")
+					{
+						x=document.images[index].src;
+						document.images[index].src=document.images[index-1].src;
+						document.images[index-1].src=x;
+						x-=1;
+						x=arr2[index];
+						arr2[index]=arr2[index-1];
+						arr2[index-1]=x;
+					}
+					else if(arr2[index+1]=="pic/0.png")
+					{
+						x=document.images[index+1].src;
+						document.images[index+1].src=document.images[index].src;
+						document.images[index].src=x;
+						x=arr2[index+1];
+						arr2[index+1]=arr2[index];
+						arr2[index]=x;
+						
+					}
+					else if(arr2[index+4]=="pic/0.png")
+					{
+						 x=document.images[index+4].src;
+						document.images[index+4].src=document.images[index].src;
+						document.images[index].src=x;	
+						x=arr2[index+4];
+						arr2[index+4]=arr2[index];
+						arr2[index]=x;
+						
+					}
+					else if(arr2[index-4]=="pic/0.png")
+					{
+						 x=document.images[index-4].src;
+						document.images[index-4].src=document.images[index].src;
+						document.images[index].src=x;	
+						x=arr2[index-4];
+						arr2[index-4]=arr2[index];
+						arr2[index]=x;
+					}
+						}
+			
+		onload = function()
+		{
+				for(i=0;i<arr2.length;i++)
+			{
+				document.images[i].src=arr2[i];
+			}	
+		}
+		for (var i = 0; i <arr2.length; i++) {
+			if(arr2[i]==original[i])
+			{
+				counter++;
+				if(counter==15)
+					alert("Congratulations");
+			}
+		}
+		</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				<img src="pic/0.png" width="120" height="120" onclick="flip(0)" />
+			</td>
+			<td>
+				<img src="pic/1.png" width="120" height="120" onclick="flip(1)" />	
+			</td>
+			<td>
+				<img src="pic/2.png" width="120" height="120" onclick="flip(2)" />
+			</td>
+			<td>
+				<img src="pic/3.png" width="120" height="120" onclick="flip(3)" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="pic/4.png" width="120" height="120" onclick="flip(4)" />
+			</td>
+			<td>
+				<img src="pic/5.png" width="120" height="120" onclick="flip(5)" />
+			</td>
+			<td>
+				<img src="pic/6.png" width="120" height="120" onclick="flip(6)" />
+			</td>
+			<td>
+				<img src="pic/7.png" width="120" height="120" onclick="flip(7)" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="pic/8.png" width="120" height="120" onclick="flip(8)" />	
+			</td>
+			<td>
+				<img src="pic/9.png" width="120" height="120" onclick="flip(9)" />
+			</td>
+			<td>
+				<img src="pic/10.png" width="120" height="120" onclick="flip(10)" />
+			</td>
+			<td>
+				<img src="pic/11.png" width="120" height="120" onclick="flip(11)" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="pic/12.png" width="120" height="120" onclick="flip(12)" />
+			</td>
+			<td>
+				<img src="pic/13.png" width="120" height="120" onclick="flip(13)" />
+			</td>
+			<td>
+				<img src="pic/14.png" width="120" height="120" onclick="flip(14)" />
+			</td>
+			<td>
+				<img src="pic/15.png" width="120" height="120" onclick="flip(15)" />
+			</td>
+		</tr>	
+	</table>
+</body>
+</html>
